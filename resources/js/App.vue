@@ -1,38 +1,24 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-
-      <v-spacer/>
-
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <router-view />
-    </v-content>
+    <the-toolbar-app style="position: fixed; z-index: 1000"/>
+    <router-view class="mt-5 pt-3"/>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import TheToolbarApp from './components/TheToolbarApp';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    TheToolbarApp,
   },
-  data: () => ({
-    // data here...
-  }),
 };
 </script>
+
+<style>
+  #app {
+    min-height: 100vh;
+    color: #181e24;
+  }
+</style>

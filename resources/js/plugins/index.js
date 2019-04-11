@@ -3,4 +3,4 @@ import './vuetify';
 
 export {
   axios,
-};
+}
