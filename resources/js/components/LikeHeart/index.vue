@@ -15,7 +15,7 @@ export default {
   name: 'LikeHeart',
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true,
     },
     isLike: {

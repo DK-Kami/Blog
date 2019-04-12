@@ -1,10 +1,10 @@
 export default {
   state: {
-    isAuth: false,
-    isAdmin: false,
+    isAuth: true,
+    isAdmin: true,
     token_type: '',
     token_success: '',
-    name: '',
+    name: 'baka',
     email: '',
     password: '',
   },
@@ -22,6 +22,8 @@ export default {
       state.isAuth = false;
       state.isAdmin = false;
       state.name = '';
+      state.email = '';
+      state.password = '';
     },
   },
   actions: {

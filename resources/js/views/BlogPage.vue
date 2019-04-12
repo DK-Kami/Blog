@@ -35,11 +35,34 @@
               <v-flex xs1>
                 <v-layout justify-space-between>
                   <v-flex>
-                    <v-btn color="info" @click="$router.push({ name: 'article', params: { id: i } })">Подробнее</v-btn>
+                    <v-btn
+                      v-if="!isAdminka"
+                      color="info"
+                      outline
+                      @click="$router.push({ name: 'article', params: { id: i } })"
+                    >
+                      Подробнее
+                    </v-btn>
+                    <v-btn
+                      v-if="isAdminka"
+                      color="info"
+                      outline
+                      @click="$router.replace({ name: 'article-edit', params: { id: i } });"
+                    >
+                      Изменить
+                    </v-btn>
+                    <v-btn
+                      v-if="isAdminka"
+                      color="error"
+                      @click="$store.dispatch('deleteArticle', i)"
+                    >
+                      Удалить
+                    </v-btn>
                   </v-flex>
                   
                   <v-flex shrink>
                     <like-heart
+                      v-if="!isAdminka"
                       :id="i"
                       :isLike="article.isLike"
                       :count="article.likes"
@@ -60,6 +83,12 @@ import LikeHeart from '@/components/LikeHeart';
 
 export default {
   name: 'BlogPage',
+  props: {
+    isAdminka: {
+      type: Boolean,
+      default: false,
+    },
+  },
   components: {
     LikeHeart,
   },

@@ -7,6 +7,7 @@ import Article from './views/ArticlePage.vue';
 import UserAdmin from './views/admin/UserAdmin.vue';
 import UserAdminEdit from './views/admin/UserAdminEdit.vue';
 import ArticleAdmin from './views/admin/ArticleAdmin.vue';
+import ArticleAdminAdd from './views/admin/ArticleAdminAdd.vue';
 import ArticleAdminEdit from './views/admin/ArticleAdminEdit.vue';
 
 Vue.use(Router);
@@ -53,6 +54,11 @@ export default new Router({
       path: '/admin/article',
       name: 'admin-article',
       component: ArticleAdmin,
+    },
+    {
+      path: '/admin/article/add',
+      name: 'admin-article-add',
+      component: ArticleAdminAdd,
     },
     {
       path: '/admin/article/edit/:id',

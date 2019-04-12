@@ -44,7 +44,13 @@
             @click:append-outer="sendComment" />
         </v-flex>
 
-        
+        <v-flex xs12 class="display-3 font-weight-light">
+          Комментарии:
+        </v-flex>
+
+        <v-flex xs12>
+          
+        </v-flex>
       </v-layout>
     </v-layout>
   </v-container>

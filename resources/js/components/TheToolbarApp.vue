@@ -11,6 +11,9 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
+      <v-btn flat v-if="isAdmin" to="/admin/user">Пользователи</v-btn>
+      <v-btn flat v-if="isAdmin" to="/admin/article">Записи</v-btn>
+      <v-btn flat v-if="isAdmin" to="/admin/article/add">+</v-btn>
       <v-btn flat to="/blog" v-if="isAuth">Блог</v-btn>
       <v-btn
         v-if="isAuth"

@@ -9,6 +9,7 @@ mix.webpackConfig({
   resolve: {
     alias: {
       '@': path.join(__dirname, './resources/js'),
+      'img': path.join(__dirname, './resources/js/assets/img'),
     }
   }
 })

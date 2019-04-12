@@ -10,7 +10,7 @@
         class="text-xs-center"
       >
         <v-flex class="display-1">
-          Измение записи
+          Добавление записи
         </v-flex>
 
         <v-flex>
@@ -65,8 +65,8 @@
           wrap
           mb-3
         >
-          <v-btn color="info" outline @click="editArticle">Изменить</v-btn>
-          <v-btn outline color="error" @click="back">Назад</v-btn>
+          <v-btn color="info" outline @click="addArticle">Добавить</v-btn>
+          <v-btn outline color="error" @click="clear">Очистить</v-btn>
         </v-layout>
       </v-layout>
     </v-flex>
@@ -75,9 +75,6 @@
 
 <script>
 export default {
-  mounted() {
-    this.article = this.$store.getters.getBlog[this.$route.params.id];
-  },
   data: () => ({
     article: {
       title: '',
@@ -91,15 +88,13 @@ export default {
 		imageFile: ''
   }),
   methods: {
-    editArticle() {
-      this.$store.dispatch('updateArticle', {
-        article: this.article,
-        id: this.$route.params.id,
-      });
-      this.back()
+    addArticle() {
+      this.$store.dispatch('addArticle', this.article);
+      this.$router.push({ name: 'admin-article' });
     },
-    back() {
-      this.$router.replace({ name: 'admin-article' });
+    clear() {
+      this.article.title = '';
+      this.article.text = '';
     },
 
     pickFile () {

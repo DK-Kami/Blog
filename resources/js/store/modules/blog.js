@@ -39,10 +39,14 @@ export default {
       },
     ],
   },
-  mutation: {
+  mutations: {
     IS_LIKE_CHANGE: (state, id) => { state.blog[id].isLike = !state.blog[id].isLike; },
     DISLIKE: (state, id) => { state.blog[id].likes -= 1; },
     LIKE: (state, id) => { state.blog[id].likes += 1; },
+
+    DELETE_ARTICLE: (state, id) => { state.blog.splice(id, 1); },
+    ADD_ARTICLE: (state, article) => { state.blog.push(article); },
+    UPDATE_ARTICLE: (state, {article, id}) => { state.blog[id] = article; },
   },
   actions: {
     likeOrDislike: ({ commit, state }, id) => {
@@ -55,6 +59,16 @@ export default {
       } else {
         (commit('DISLIKE', id));
       }
+    },
+    deleteArticle: ({commit}, id) => {
+      commit('DELETE_ARTICLE', id);
+    },
+    addArticle({commit}, article) {
+      commit('ADD_ARTICLE', article);
+    },
+    
+    updateArticle({commit}, {article, id}) {
+      commit('UPDATE_ARTICLE', {article, id});
     },
   },
   getters: {

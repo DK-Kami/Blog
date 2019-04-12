@@ -1,12 +1,13 @@
 export default {
   computed: {
     userName() {
-      console.log(this.$options);
-      this.$options.parent.$store.getters.getName;
+      return this.$options.parent.$store.getters.getName;
     },
     isAuth() {
-      console.log(this.$options);
-      this.$options.parent.$store.getters.getIsAuth;
+      return this.$options.parent.$store.getters.getIsAuth;
+    },
+    isAdmin() {
+      return this.$options.parent.$store.getters.getIsAdmin;
     },
   },
 };
